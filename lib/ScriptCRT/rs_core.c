@@ -1,5 +1,5 @@
 #include "rs_core.rsh"
-
+#include "rs_graphics.rsh"
 /*****************************************************************************
  * CAUTION
  *
@@ -19,8 +19,8 @@
  *****************************************************************************/
 typedef struct Allocation {
     char __pad[44];
-    struct Hal {
-        struct State {
+    struct {
+        struct {
             uint32_t dimensionX;
             uint32_t dimensionY;
             uint32_t dimensionZ;
@@ -298,4 +298,3 @@ extern const void * __attribute__((overloadable))
     const uint32_t dimY = alloc->mHal.state.dimensionY;
     return &p[eSize * (x + y * dimX + z * dimX * dimY)];
 }
-
